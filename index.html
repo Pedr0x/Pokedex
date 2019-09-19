@@ -1,0 +1,230 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>pokemonx</title>
+        <meta name="description" content="Una guía interactiva de primeros pasos para Brackets.">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="toggle.css">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+		<!--<link rel="stylesheet" href="/demo/CSS/pokedex.css">
+       <link rel="stylesheet" href="../demo/CSS/pokedex.css"> -->
+   <link rel="stylesheet" href="pokedex.css">
+    </head>
+    <body>
+        
+        <div class="super">
+			<div class="macro">  
+        <div class="container">
+          <div class="top"> 
+          
+            <div class="circles"> 
+        <div class="big-circle"> </div>
+    
+  <div class="small-circles-container"> 
+    <div class="small-circle" style="/*! display: block; */background: red;background: radial-gradient(red, #7AE8FF);background: radial-gradient(#FF6767 2%,#C80000);"> </div>
+        <div class="small-circle" style="background: radial-gradient(#FFDB67 2%,#BFC800);"> </div>
+    <div class="small-circle" style="background: radial-gradient(#77FF67 2%,#00C808);"> </div>
+
+  </div>
+    </div>
+            <h1 class="Pokedex-title">Pokedex</h1>
+            
+          </div>
+           <div class="side1">  
+          
+			<div class="x-container"> 
+            <div class="x scale-in-ver-cente image"> </div></div>
+            <h4 class="name-Indicator">Pokémon´s Name</h4>
+            <div class="ok">Bulbasaur</div>
+          <div class="seg">
+                    <h4 class="subtitle sub-weight">Weight </h4>
+                    <h4 class="subtitle sub-type">Type </h4>
+              <div class="type-container"> 
+                    <h3 id="type" class="type1"></h3>
+                    <h3  id="type" class="type2"></h3> </div>
+                    <h4 class="subtitle sub-height">Height </h4>
+                                  <h3 class="weight"></h3>
+                <h3 class="altura"> </h3>
+
+            </div>
+		  <!--	<div class="seg">
+       <h4 class="subtitle">Weight </h4>
+           <h3 class="weight">17.7 Kg</h3>
+                
+                    <h4 class="subtitle">Type </h4>
+                    <h3 id="type" class="type1"></h3>
+                    <h3 id="type" class="type2"></h3>
+                    <h4 class="subtitle">Height </h4>
+<h3 class="height"> 0.6 M</h3>
+</div> -->
+			
+        
+       
+               
+                 
+			
+		<div class="text-container">
+			
+			<p class="
+			   pokedex-text"></p>
+			
+			
+			</div>
+			
+			
+			<div class="buttons-container">
+   
+        <div class="checkbox-container"> 
+    <label class="switch" onclick="kk()"> <input class="checkbox" type="checkbox">
+  <span class="slider round"></span>
+</label>
+    
+    </div>
+            <a class="shiny">  Shiny  </a> 
+
+             <button class="back-button action-button" onclick="backPokemon()">
+           <i class="material-icons">
+replay
+</i>
+            </button>
+            
+    <button class="random-button action-button" onclick="pokeRandom()">
+            <i class="material-icons"> 
+casino
+  </i>
+            </button>
+                           
+  
+                
+              
+            
+           <div class="input-container">  
+<input class="input" placeholder="Search Pokémon/Number">  <button class="input-icon-container"onclick="hello()"> <i class="material-icons"> 
+send
+  </i> </button></div>
+			</div>   
+			</div>
+			      
+        <div class="side2">              
+						<h4 clas="subtitle sprite-back-subtitle">  Back</h4>
+			<h4 class="subtitle sprite-female-subtitle">  Female</h4>
+			
+			<div class="side2-sprites-container"> 
+
+
+			<div class="sprite-back image"> </div>
+			 <div class="sprite_female image"> </div> </div>
+
+			<div class="XP-container">
+			<h4 class="side2-subtitle">  Base XP</h4>
+			<h3  class="base-xp"> </h3> </div>
+			
+			
+			<div class="habitat-container">
+			<h4 class="side2-subtitle">  Habitat</h4>
+			<h3  class="habitat"> </h3> </div>
+			
+			
+			<div class="generation-container">
+			<h4 class="side2-subtitle">  Generation</h4>
+			<h3  class="generation"> </h3> </div>
+			
+			
+			<div class="growth_rate-container">
+			<h4 class="side2-subtitle">  Growt Rate</h4>
+			<h3  class="growth_rate"> </h3> </div>
+			
+			
+			
+		<div class="capture_rate-container">
+			<h4 class="side2-subtitle">  Capture Rate</h4>
+			<h3  class="capture-rate"> </h3> </div>
+			
+			<div class="abilities-container">
+			<h4 class="side2-subtitle">  Abilities</h4>
+			<div class="abilities-inner-container"> 
+                <h3  class="ability1"> </h3> 
+			<h3  class="ability2"> </h3> </div>
+
+			</div>
+			
+			
+		<div class="base-happiness-container">
+			<h4 class="side2-subtitle">  Base Happiness</h4>
+			<h3  class="baseHappiness"> </h3> 
+			</div>
+            
+            	<div class="shape-container">
+			<h4 class="side2-subtitle">  shape</h4>
+			<h3  class="shape"> </h3> 
+			</div>
+            
+            <div class="previous-evolution-container">
+			<h4 class="side2-subtitle">  Evolves from</h4>
+			<h3  class="previous-evolution"> </h3> 
+			</div>
+			
+			   <div class="hatch-container">
+			<h4 class="side2-subtitle">  Hatch Counter</h4>
+			<h3  class="hatch-counter">  </h3> 
+			</div>
+			
+ </div>
+           			<div class="icon-container">    
+           			 <a href="#" class="fa fa-github social-icon"></a></div>	
+
+            </div>
+         
+				<div>
+				    
+				    
+				    
+				</div>
+      
+        
+  
+				
+        <div class="card"> 
+
+            <div class="abilities-container">  <h2 class="abilities"> </h2> 
+            </div>
+            
+                        <div class="-container"> <h2 class=""> </h2></div>
+
+            </div>
+        </div>
+			
+			</div>
+
+     <script src="pokedex.js"> 
+      
+         
+         
+         
+         
+         
+        </script>
+            
+            
+          
+            
+            
+        
+            
+            
+            
+            
+            
+            
+
+        
+    </body>
+</html>
