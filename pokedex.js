@@ -1,13 +1,13 @@
 //variables
 
-var type1 = document.querySelector(".type1");
-var type2 = document.querySelector(".type2");
-var x = document.querySelector(".x");
-var weight = document.querySelector(".weight");
-var ok = document.querySelector(".ok");
-var altura = document.querySelector(".altura");
-var input = document.querySelector(".input");
-var checkbox = document.querySelector(".checkbox");
+let type1 = document.querySelector(".type1");
+let type2 = document.querySelector(".type2");
+let mainImgScreen = document.querySelector(".main-img-screen");
+let weight = document.querySelector(".weight");
+let ok = document.querySelector(".ok");
+let altura = document.querySelector(".altura");
+let input = document.querySelector(".input");
+let checkbox = document.querySelector(".checkbox");
 
 //var checked = {state : false};
 var more = document.querySelector(".more");
@@ -19,8 +19,6 @@ var abilities = document.querySelector(".abilities");
 var spriteBackDefault = document.querySelector(".sprite-back");
 var spriteFemale = document.querySelector(".sprite_female");
 var green = "rgb(90, 255, 5)";
-//let materialCheckbox =document.querySelector(".material-checkbox");
-//let materialCheckbox = document.querySelector(".material-checkbox");
 //side 2
 let ability1 = document.querySelector(".ability1");
 let ability2 = document.querySelector(".ability2");
@@ -37,102 +35,62 @@ let hatchCounter = document.querySelector(".hatch-Counter");
 var arra = [
 	
 ]
-var p;
-var h;
-var xx;
+var flavorText;
 var koko = arra.length-1;
 var text = document.querySelector(".pokedex-text")
 
 let allH3 = document.querySelectorAll("h3");
 
-/*
-function isChecked() {
-    "use strict";
-    if (checkbox.checked === true) {
-        checked.state = true;
-    } else {
-        checked.state = false;
-    }
-}
-         function isChecked (){
-			 
-	if (checkbox.checked =!= true ) {
-		checked.state =! true;
-		materialCheckbox.innerHTML = "check_box";
-		}
-else {
-        checked.state =! false;
-	materialCheckbox.innerHTML = "check_box_outline_blank";
-    }
-}*/
-/*
-function isChecked(){
-	if( checked.state == true){
-	   			   console.log("t");
 
-		materialCheckbox.innerHTML = `check_box`;
-	   } if (checked.state == false) {
-	materialCheckbox.innerHTML = "check_box_outline_blank";
-		   console.log("f");
-    } 
-	checkbox.checked = !checkbox.checked;
-	console.log(checkbox.checked);
-
-
-
-}*/
-		   
-
-function resetH3  () {
+function resetAll  () {
         for (let i = 0; i < allH3.length; i++) {
      allH3[i].innerHTML = "";
 }
-console.log("Resetted");    
-}
-
-
-
-function cardVisibility() {
-    "use strict";
-    cardDisplay = !cardDisplay;
-    if (cardDisplay === true) {
-        card.classList.add("card_visible");
-    } else {
-        card.classList.remove("card_visible");
-    }
-    console.log(cardDisplay);
-}    
-        //función    
-var poke = (numero) => {
-            resetH3();
     
-         	if (typeof numero === "string") {
-         		numero = numero.toLowerCase();
-         		numero = numero.trim();
-
-         	}
-			 
-	{
-		type1.className = "";
+    	type1.className = "";
 		type2.className = "";
 
 		spriteFemale.style.background="";
 		spriteFemale.innerHTML = "";
 		spriteBackDefault.innerHTML="";
 		spriteBackDefault.style.background="";
+    
+console.log("Resetted");    
+}
 
-		x.classList.remove("scale-in-ver-center");
+      
+
+
+
+        //mainFunction    
+let search = (numero) => {
+            resetAll();
+        
+
+         	if (typeof numero === "string") {
+         		numero = numero.toLowerCase();
+         		numero = numero.trim();
+
+         	}
+	{
+
 fetch(`https://pokeapi.co/api/v2/pokemon/${numero}/`)
+        
 	.then(function (response) {
+    if (!response.ok) { 
+        console.log("xx") ;
+        text.innerHTML="No se pudo encontrar ese Pokemon"
+                      } else {
 			response.json()
+    
 				.then(function (pokemon) {
 						//Nombre
 						ok.innerHTML = pokemon.name;
 						//Sprite
 						if (checkbox.checked == true) {
-							x.style.background = `rgb(90, 255, 0)  url(${pokemon.sprites.front_shiny})`;
+							mainImgScreen.style.background = `rgb(90, 255, 0)  url(${pokemon.sprites.front_shiny})`;
 						} else {
-							x.style.background = `rgb(90, 255, 0)  url(${pokemon.sprites.front_default})`;
+							mainImgScreen.style.background = `rgb(90, 255, 0)  url(${pokemon.sprites.front_default})`;
 						}
 						//Altura y peso
 						baseXP.innerHTML =  ` ${pokemon.base_experience}`;//nuevo
@@ -178,12 +136,7 @@ if (pokemon.sprites.front_female == null){
 	   spriteFemale.style.background = `rgb(90, 255, 0,0) url(${pokemon.sprites.front_female}) `;}
    }
 
-         				//card
-         				//console.log(pokemon.abilities.length);
-         				//console.log(tipoP1); dasdasd 
-         				//console.log(tipoP2);
-         				//console.log(pokemon.abilities[0].ability.name);
-         				//   console.log(pokemon.abilities.length);
+         			
          	for (let k = 0; k < pokemon.abilities.length; k++) {
          	console.log(pokemon.abilities[k].ability.name);
 			ability1.innerHTML = pokemon.abilities[0].ability.name;
@@ -194,18 +147,12 @@ if (pokemon.sprites.front_female == null){
 				ability2.innerHTML = pokemon.abilities[1].ability.name
 				}
 			}
-							
-         					//  console.log(k);
-	/*if (pokemon.abilities[1] == undefined) {
-         					//tipoP2 = "";
-
-         				} else {
-         					tipoP2 = pokemon.types[1].type.name;
-							let typeCSS2 =`type_${pokemon.types[1].type.name}`;
-							type2.classList.add(typeCSS2);
-
-         				}*/ 
-         					}	)	}	)
+						
+         					}	
+                     )
+}
+}
+         )
 			 
 .then(function(pokemon) {   
 
@@ -215,15 +162,12 @@ if (pokemon.sprites.front_female == null){
 	 .then(function (pokemon)
 		  {
 		console.log(`El capture rate de este pokemon es ${pokemon.capture_rate}`);
-//for(let i = 0; pokemon.flavor_text_entries.language.name != "en"; i++){
-var values= pokemon.flavor_text_entries;
+let values= pokemon.flavor_text_entries;
 let items = Object.values(values);
-//let obj = items.find(obj => obj.[].language.name == "en");
     if(pokemon.habitat ==null){habitat.innerHTMl = "" } 
                     else
     {habitat.innerHTML =  `${pokemon.habitat.name}`;
     }
-
         if (pokemon.evolves_from_species == null){
                         previousEvolution.innerHTML="---";
                     }
@@ -240,27 +184,10 @@ hatchCounter.innerHTML= `${pokemon.hatch_counter}`;
 function findObjectByKey() {
     for (var i = 0; i < items.length; i++) {
         if (items[i].language.name === "en") {
-            // h = items[i].flavor_text;
-			 // Object.values(h); 
-			p =	Object.values(items[i].flavor_text); 
-		//console.log(p);
-text.innerHTML=p.slice().join("");		
-			//console.log(typeof (h));
-			
-			//console.log(h);
-			//p= Object.values(h);}
-//console.log( {h{2}.flavor_text});     
-//	var xx= (p [0] );	
-			
-			//console.log(h); OBJECT
-			//console.log(p); OBJECT
-			//console.log(xx);STRING
-			//console.log(xx);
-			//console.log(xx.length);		
-/*for( var i = 0; i < p.length; i++) {
-	
-}			*/
-		
+
+			flavorText =	Object.values(items[i].flavor_text); 
+text.innerHTML=flavorText.slice().join("");		
+
 	}
     }
     return null;
@@ -270,83 +197,65 @@ findObjectByKey();
 }
 				   
 				  )
-		//var entries = Object.entries(pokemon.flavor_text_entries);
 }
 			  )
 				
 				}
-		  )
-			arra.push(numero)	 
+		  ) 
+        
+        arra.push(numero); 
 
 }
+
 }
+    
+
 		 
 		 
 
-
-
-		 //)	)}
-	
-			
-/*.then(function(response) { 
-console.log(pokemon.base_happiness);
-return response.json();
-
-} )
-
-	 
-.catch(function(error) { 
-  console.log('Requestfailed', error) 
-}); 
-		 }*/
-			 
-			 /*fetch(`https://pokeapi.co/api/v2/pokemon-species/${numero}/`).then(function (response) {
-         		response.json().then(
-         			function (pokemon) {
-         				console.log("funciona");
-         	 		})
-         	})
-
-         }*/
          
          
-       let hello =   () => {
-         poke(input.value);
+       let getPokemon =   () => {
+         search(input.value);
 
          }
          
-            
-       poke(1);
+
+ search(1);
 
 function pokeRandom () {
-    var random= Math.floor(Math.random() * 803) + 1;
-    poke(random);
-    input.innerHTML=random;
+    let random= Math.floor(Math.random() * 803) + 1;
+    search(random);
+    console.log(random);
+    
 }
 
 
 
 function backPokemon() {
     if ( arra.length == 0){
+        resetAll();
+        
 text.innerHTML="Can´t return to the last Pokémon";      
     } else{
     arra.pop();
     console.log(arra[arra.length - 1]);
     let lastElement = arra[arra.length - 1];
-	poke(lastElement);
-arra.pop();
+	search(lastElement);
+        arra.pop();
 
 }
+    
 }
 
 
-function kk (){
-    var shiny = document.querySelector(".shiny");
+function getShiny (){
+    let shiny = document.querySelector(".shiny");
 
 if( checkbox.checked == true){
-		shiny.classlist.add(`shiny_active`);
+		shiny.style.background = "linear-gradient(120deg,#ea4806,#ffb805)";
 	   }  else {
-	shiny.classlist.remove("shiny_active");
+	shiny.style.background = " #bdb9b9";
 	   }
 
 }
