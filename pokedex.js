@@ -30,7 +30,7 @@ let captureRate = document.querySelector(".capture-rate");
 let Happiness= document.querySelector(".baseHappiness");
 let shape = document.querySelector(".shape");
 let previousEvolution = document.querySelector(".previous-evolution");
-let hatchCounter = document.querySelector(".hatch-Counter");
+let hatchCounter = document.querySelector(".hatch-counter");
 
 var arra = [
 	
